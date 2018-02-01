@@ -30,3 +30,16 @@ a.nav-link.active {
 .selected {
 	background: #666666;
 }
+
+.modal-footer {
+    text-align: center;
+    display: block;
+}
+
+.navbar .container .row a {
+    margin-right: 15px;
+}
+
+.navbar .container .row a:last-child {
+    margin-right: 0;
+}

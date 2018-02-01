@@ -1,0 +1,66 @@
+{
+    "users": [
+        {
+            "name": "pesho",
+            "email": "pesho@mail.com",
+            "password": "pppp"
+        }
+    ],
+    "stats": {
+        "furniture": 72,
+        "users": 164
+    },
+    "furniture": [
+        {
+            "id": 1,
+            "make": "Ikea",
+            "model": "Sofa",
+            "year": 2005,
+            "description": "It is very good sofa",
+            "price": 790,
+            "image": "http://www.ikea.com/PIAimages/0447585_PE597394_S5.JPG",
+            "createdOn": "2017-11-14T08:37:36.871Z",
+            "createdBy": "pesho@mail.com",
+            "likes": [
+                "pesho@mail.com"
+            ],
+            "reviews": [
+                {
+                    "rating": 4,
+                    "comment": "I liked the sofa, it is good for sitting",
+                    "user": "pesho",
+                    "createdOn": "2017-11-14T08:50:31.202Z"
+                }
+            ],
+            "material": "Soft but sturdy"
+        },
+        {
+            "id": 2,
+            "make": "Ikea",
+            "model": "Chair",
+            "year": 2007,
+            "description": "Comfy chair",
+            "price": 98,
+            "image": "https://ii.worldmarket.com/fcgi-bin/iipsrv.fcgi?FIF=/images/worldmarket/source/23626_XXX_v1.tif&wid=2000&cvt=jpeg",
+            "createdOn": "2017-11-14T08:37:36.871Z",
+            "createdBy": "pesho@mail.com",
+            "likes": [],
+            "reviews": [],
+            "material": "Pleasant"
+        },
+        {
+            "id": 3,
+            "make": "Ikea",
+            "model": "Table",
+            "year": 2006,
+            "description": "Dining table",
+            "price": 249,
+            "image": "https://www.ethanallen.com/dw/image/v2/AAKH_PRD/on/demandware.static/-/Sites-main/default/dw168edb86/images/large/15-6833-2_226_SB_612_parade.jpg?sw=469&sh=469&sm=fit",
+            "createdOn": "2017-11-14T08:37:36.871Z",
+            "createdBy": "pesho@mail.com",
+            "likes": [],
+            "reviews": [],
+            "material": "Wood"
+        }
+    ]
+}

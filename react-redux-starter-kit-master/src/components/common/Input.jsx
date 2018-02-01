@@ -4,7 +4,7 @@ class Input extends Component {
     render() {
         const { name, type = 'text', value, onChange, label } = this.props;
         return (
-            <div>
+            <div className="form-group">
                 <label htmlFor="new-email">{label}</label>
                 <input
                     onChange={onChange}
