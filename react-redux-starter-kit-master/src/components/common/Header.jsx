@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 class Header extends Component {
     render() {
-        const { loggedIn, onLogout } = this.props;
+        const { loggedIn, onLogout, items, users } = this.props;
 
         return (
             <header>
@@ -17,6 +17,8 @@ class Header extends Component {
                             {loggedIn && <NavLink to="/profile" activeClassName="active">Profile</NavLink>}
                             {!loggedIn && <NavLink to="/login" activeClassName="active">Login</NavLink>}
                             {!loggedIn && <NavLink to="/register" activeClassName="active">Register</NavLink>}
+                            <span>{items} in the catalog</span>
+                            <span>{users} registered users</span>
                         </div>
                     </div>
                 </nav>

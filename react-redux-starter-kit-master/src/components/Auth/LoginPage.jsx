@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Input from '../common/Input';
 import { connect } from 'react-redux';
 import { loginAction, redirect } from '../../actions/authActions';
+import { withRouter } from 'react-router';
 
 class LoginPage extends Component {
     constructor(props) {
@@ -70,4 +71,4 @@ function mapDispatch(dispatch) {
     };
 }
 
-export default connect(mapState, mapDispatch)(LoginPage);
+export default connect(mapState, mapDispatch)(withRouter(LoginPage));

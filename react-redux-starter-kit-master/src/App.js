@@ -21,14 +21,27 @@ class App extends Component {
     }
 
     onLogout() {
+        this.setState({loggedIn: false});
         this.props.logout();
         this.props.history.push('/');
+    }
+
+    componentWillmount() {
+        if (localStorage.authToken) {
+            this.setState({ loggedIn: true })
+        }
+    }
+
+    componentWillReceiveProps (nextProps) {
+        if (nextProps.logginSuccess) {
+            this.setState({loggedIn: true});
+        }
     }
 
     render() {
         return (
             <div className="App"> 
-                <Header loggedIn={localStorage.getItem('authToken') != null} onLogout={this.onLogout} />
+                <Header loggedIn={localStorage.getItem('authToken') != null} onLogout={this.onLogout} items={0} users={0}/>
                 <main>
                     <Switch>
                         <Route exact path="/" render={() => <HomePage furniture={furniture}/> }/>
@@ -47,7 +60,9 @@ class App extends Component {
 }
 
 function mapState(state) {
-    return {};
+    return {
+        logginSuccess: state.login.success
+    };
 }
 
 function mapDispatch(dispatch) {
