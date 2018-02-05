@@ -44,7 +44,8 @@ class App extends Component {
                 <Header loggedIn={localStorage.getItem('authToken') != null} onLogout={this.onLogout} items={0} users={0}/>
                 <main>
                     <Switch>
-                        <Route exact path="/" render={() => <HomePage furniture={furniture}/> }/>
+                        <Route exact path="/" component={HomePage}/>
+                        <Route path="/view/:page" render={() => <HomePage /> }/>
                         <Route path="/login" component={LoginPage} />
                         <Route path="/register" component={RegisterPage} />
                         <Route path="/create" component={CreatePage} />

@@ -29,4 +29,24 @@ async function login(email, password) {
     return await res.json();
 }
 
-export { register, login };
+async function fetchPage(page) {
+    const res = await fetch(host + 'furniture/all?page=' + page);
+    return await res.json();
+}
+
+async function fetchDetails(id) {
+    const res = await fetch(host + 'furniture/details/' + id);
+    return await res.json();
+}
+
+async function fetchSearchPage(query, page) {
+    const res = await fetch(host + `furniture/all?page=${page}&search=${query}`);
+    return await res.json();
+}
+
+async function fetchStats() {
+    const res = await fetch(host + 'stats');
+    return await res.json();
+}
+
+export { register, login, fetchPage, fetchDetails, fetchSearchPage, fetchStats };
