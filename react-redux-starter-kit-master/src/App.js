@@ -12,6 +12,7 @@ import Footer from './components/common/Footer';
 import { connect } from 'react-redux';
 import { logoutAction } from './actions/authActions';
 import { furniture } from './data.json';
+import { fetchStstsAction } from './actions/statsActions';
 
 class App extends Component {
     constructor(props) {
@@ -30,6 +31,8 @@ class App extends Component {
         if (localStorage.authToken) {
             this.setState({ loggedIn: true })
         }
+
+        this.props.fetchStstsAction();
     }
 
     componentWillReceiveProps (nextProps) {
@@ -41,11 +44,15 @@ class App extends Component {
     render() {
         return (
             <div className="App"> 
-                <Header loggedIn={localStorage.getItem('authToken') != null} onLogout={this.onLogout} items={0} users={0}/>
+                <Header loggedIn={localStorage.getItem('authToken') != null} 
+                        onLogout={this.onLogout}   
+                        items={this.props.items} 
+                        users={this.props.users}
+                />
                 <main>
                     <Switch>
-                        <Route exact path="/" component={HomePage}/>
-                        <Route path="/view/:page" render={() => <HomePage /> }/>
+                        <Route exact path="/" component={HomePage} />
+                        <Route path="/view/:page" component={HomePage} />
                         <Route path="/login" component={LoginPage} />
                         <Route path="/register" component={RegisterPage} />
                         <Route path="/create" component={CreatePage} />
@@ -62,13 +69,16 @@ class App extends Component {
 
 function mapState(state) {
     return {
-        logginSuccess: state.login.success
+        logginSuccess: state.login.success,
+        users: state.stats.users,
+        items: state.stats.furniture
     };
 }
 
 function mapDispatch(dispatch) {
     return {
-        logout: () => dispatch(logoutAction())
+        logout: () => dispatch(logoutAction()),
+        fetchStstsAction: () => dispatch(fetchStstsAction())
     };
 }
 

@@ -35,7 +35,12 @@ async function fetchPage(page) {
 }
 
 async function fetchDetails(id) {
-    const res = await fetch(host + 'furniture/details/' + id);
+    const res = await fetch(host + 'furniture/details/' + id, {
+        methpd: 'GET',
+        headers: {
+            'Authorization' : 'bearer ' + localStorage.getItem('authToken')
+        },
+    });
     return await res.json();
 }
 
@@ -49,4 +54,17 @@ async function fetchStats() {
     return await res.json();
 }
 
-export { register, login, fetchPage, fetchDetails, fetchSearchPage, fetchStats };
+async function createFurniture(data) {
+    const res = await fetch(host + 'furniture/create', {
+        method: 'POST',
+        headers: {
+            'Content-Type' : 'application/json',
+            'Authorization' : 'bearer ' + localStorage.getItem('authToken')
+        },
+        body: JSON.stringify(data)
+    });
+
+    return await res.json();
+}
+
+export { register, login, fetchPage, fetchDetails, fetchSearchPage, fetchStats, createFurniture };

@@ -1,11 +1,13 @@
-import { FETCH_PAGE_SUCCESS } from '../actions/actionTypes';
+import { FETCH_PAGE_SUCCESS, CREATE_FURNITURE_SUCCESS } from '../actions/actionTypes';
 
 export default function FurnitureReducer (state = [], action) {
     switch(action.type) {
         case FETCH_PAGE_SUCCESS:
             return reconsile(state, action.data);
+        case CREATE_FURNITURE_SUCCESS:
+            return reconsile(state, [action.data.furniture])
             default:
-            return state;
+                return state;
     }
 }
 
